@@ -64,6 +64,7 @@ services:
       restart: always
       depends_on:
          - task-api
+         - client
       build:
          context: ./nginx
          dockerfile: Dockerfile
