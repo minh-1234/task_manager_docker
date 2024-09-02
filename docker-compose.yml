@@ -18,6 +18,7 @@ services:
          - 3000
       depends_on:
          - mongodb
+         # - mongo-seed
       env_file: 
          - .env
       environment:
@@ -59,7 +60,22 @@ services:
       networks:
          - mongo-connect
 
+   # mongo-seed:
+   #    build: 
+   #       context: ./mongo-seed
+   #       dockerfile: Dockerfile
+   #    environment:
+   #       MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
+   #       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+   #    # volumes:
+   #    #    # for persistence storage
+   #    #    - mongodb-data:/data/db
+   #    depends_on:
+   #       - mongodb
+   #    networks:
+   #       - mongo-connect
 
+      
    nginx:
       restart: always
       depends_on:
